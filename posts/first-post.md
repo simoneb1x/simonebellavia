@@ -4,7 +4,7 @@ date: '2021-04-10'
 id: 'first-post'
 ---
 
-**Welcome to my blog!** This is my first post. Here I will drop whatever I find most interesting, or I will simply try to explain some concepts that I find fascinating but unclear. I know, it sounds a bit strange, but they say one of the best ways to learn is to just exhibit and illustrate. 
+**Welcome to my blog!** This is my first post. Here I will drop whatever I find most interesting, or I will simply try to explain some concepts that I find fascinating but unclear. I know, it sounds a bit strange, but they say one of the best ways to learn is to exhibit and illustrate to others. 
 
 I made this blog with [Next.js](https://nextjs.org/) and [React](https://it.reactjs.org/). I also tried [Gatsby.js](https://www.gatsbyjs.com/) (it's a great SSG), but I found the Next.js documentation clearer and guided me step by step through the implementation, also I didn't like using GraphQL.
 
