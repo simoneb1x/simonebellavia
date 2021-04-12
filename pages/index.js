@@ -32,7 +32,7 @@ export default function Home({ allPostsData }) {
         <a href="https://instagram.com/simonebellavia">
           <FontAwesomeIcon icon={faInstagram} className={utilStyles.socialIcons}/>
         </a>
-        <span style={{padding: 4}}></span>
+        <span style={{padding: 8}}></span>
         <a href="https://www.linkedin.com/in/simone-bellavia/">
           <FontAwesomeIcon icon={faLinkedin} className={utilStyles.socialIcons}/>
         </a>
