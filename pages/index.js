@@ -7,6 +7,10 @@ import { getSortedPostsData } from '../lib/posts'
 import Link from 'next/link'
 import Date from '../components/date'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faInstagram } from '@fortawesome/free-brands-svg-icons'
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
+
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData()
   return {
@@ -25,6 +29,13 @@ export default function Home({ allPostsData }) {
       <section className={utilStyles.headingMd}>
         <p>Just a creative, curious guy! 👨🏼‍💻🌎</p>
         <p>Learn more about me <a href="/about">here.</a></p>
+        <a href="https://instagram.com/simonebellavia">
+          <FontAwesomeIcon icon={faInstagram} className={utilStyles.socialIcons}/>
+        </a>
+        <span style={{padding: 4}}></span>
+        <a href="https://www.linkedin.com/in/simone-bellavia/">
+          <FontAwesomeIcon icon={faLinkedin} className={utilStyles.socialIcons}/>
+        </a>
       </section>
 
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
