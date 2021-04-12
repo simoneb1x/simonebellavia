@@ -14,7 +14,7 @@ export default function Layout({ children, home }) {
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="Just a creative and indomitable curious guy! Working in IT, Data Science and Psychology researcher."
+          content="Just a creative, curious guy! Working in IT – Data Science and Psychology researcher."
         />
         <meta
           property="og:image"
