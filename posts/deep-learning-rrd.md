@@ -1,6 +1,6 @@
 ---
 title: 'Applying Deep Learning to detect Rhegmatogenous Retinal Detachment'
-date: '2021-04-15'
+date: '2021-04-15 '
 id: 'deep-learning-rrd'
 ---
 
@@ -28,7 +28,7 @@ These images can be realized thanks to techniques conducted by means of **scanni
 
 The study evaluates precisely the ability of a deep learning technology to detect RRD using images obtained through SLO.
 
-A Machine Learning model was used that uses a **multilayer CNN capable of automatically learning the characterizing patterns of the images** and making them a classification system (Deng, J. et al., 2009).
+A Machine Learning model uses a **multilayer CNN capable of automatically learning the characterizing patterns of the images** and making them a classification system (Deng, J. et al., 2009).
 
 ![CNN architecture used. The Input is represented by the RGB 96x96 pixel image. Each of the convolutional layers (Conv1–3) is followed by an activation function layer (ReLU), pooling layers (MP1–3), and two fully connected layers (FC1, FC2).](/images/deep-learning-rrd/ml.png)
 *CNN architecture used. The Input is represented by the RGB 96x96 pixel image. Each of the convolutional layers (Conv1–3) is followed by an activation function layer (ReLU), pooling layers (MP1–3), and two fully connected layers (FC1, FC2).*
