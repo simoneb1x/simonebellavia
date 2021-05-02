@@ -27,7 +27,7 @@ export default function Home({ allPostsData }) {
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>Just a creative, curious guy! 👨🏼‍💻🌎</p>
+        <p>always striving for more 👨🏼‍💻🌎</p>
         <p>Learn more about me <Link href="/about">here</Link></p>
         <a href="https://instagram.com/simonebellavia">
           <FontAwesomeIcon icon={faInstagram} className={utilStyles.socialIcons}/>
