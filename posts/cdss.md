@@ -10,7 +10,7 @@ A **Clinical Decision Support System** is defined as an "active knowledge system
 
 As anticipated, at the beginning the CDSS were conceived to literally take important decisions, effectively replacing the figure of the doctor: the latter entered the information and waited for the CDSS to provide the "right" choice, so as to be able to simply act on that. However, today a CDSS only provides suggestions for the doctor, who examines and selects the informations provided, keeping the useful suggestions and discarding those he deems unsuitable (DSS, 2001). An important example of CDSS is certainly **CBR, Case-based Reasoning** (Shahina Begum, Mobyen Uddin Ahmed, Peter Funk, N. Xiong, Mia Folke, 2001), which uses data from previous clinical cases to **indicate a specific health treatment.** A CBR system was developed to facilitate radiotherapy treatment planning for brain cancer: given a new patient case, the CBR system retrieves a similar case from an archive of patients successfully treated with the suggested treatment plan, re-adapting it to meet the specific needs of the new case - the results obtained using real-world brain cancer patient cases have shown that **the success rate of the new CBR recovery is higher than that of the original system** (Khussainova, Gulmira; Petrovic, Sanja; Jagannathan, Rupa, 2015).
 
-## A Clinical Decision Support System for Prevention of Venous Thromboembolism: Effect on Physician Behavior.
+## A Clinical Decision Support System for Prevention of Venous Thromboembolism: Effect on Physician Behavior
 
 In the study by Durieux et al. **the effect of a CDSS in physician behavior** during clinical decisions for the prevention of venous thromboembolism was investigated (Durieux P, Nizard R, Ravaud P, Mounier N, Lepage E, 2000). In hospital clinical practice, venous thromboembolism remains a serious problem and pulmonary embolism is a leading cause of death (Frederick A. Anderson, H. Brownell Wheeler, Robert J. Goldberg, 1991). The most effective way to prevent fatal and non-fatal venous thromboembolism is to **use routine prophylaxis for high-risk patients.** Optimal decisions on the use of anticoagulants in the prevention of venous thromboembolism require access to a large amount of complex information to assess the degree of risk of hospitalized patients. The objective of the study was to determine whether the presentation of guidelines for the prophylaxis of venous thromboembolism using a CDSS increased the percentage of appropriate clinical practice decisions made regarding the proportion of anticoagulant prescription. 
 
@@ -20,7 +20,7 @@ Hope you found it interesting. Thanks for reading.
 
 ### Bibliography
 
-1. DSS. (2001). Open Clinical - Knowledge Management for Medical Care: https://web.archive.org/web/20010715105143/http:/www.openclinical.org/dss.html
+1. DSS. (2001). [Open Clinical - Knowledge Management for Medical Care](https://web.archive.org/web/20010715105143/http:/www.openclinical.org/dss.html)
 2. Benner, E. (2007). Clinical Decision Support Systems. Springer.
 3. Shahina Begum, Mobyen Uddin Ahmed, Peter Funk, N. Xiong, Mia Folke. (2001). Case-Based Reasoning Systems in the Health Sciences: A Survey of Recent Trends and Developments. Systems, Man, and Cybernetics, Part C: Applications and Reviews, IEEE Transactions, 421-434.
 4. Khussainova, Gulmira; Petrovic, Sanja; Jagannathan, Rupa. (2015). Retrieval with clustering in a case-based reasoning system for radiotherapy treatment planning. Journal of Physics: Conference Series.
