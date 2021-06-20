@@ -1,3 +1,5 @@
+import React, { useState } from 'react' 
+import { toast, ToastContainer } from 'react-toastify'
 import Head from 'next/head'
 import Layout, { siteTitle } from '../../components/layout'
 import styles from '../../styles/utils.module.css'
@@ -33,7 +35,7 @@ export default function Home({ allPostsData }) {
     const [includeNumbers, setIncludeNumbers] = useState(false);
     const [includeSymbols, setIncludeSymbols] = useState(false);
 
-    const handleGenerationPassword = (e) => {
+    const handleGeneratePassword = (e) => {
         if(
             !includeUppercase &&
             !includeLowercase &&
@@ -43,7 +45,7 @@ export default function Home({ allPostsData }) {
             notify("You must select at least one option", true)
         }
 
-        let characterList = '';
+        let characterList = [];
 
         if (includeLowercase) {
             characterList =  characterList.concat(LOWERCASE_CODES);
@@ -65,15 +67,29 @@ export default function Home({ allPostsData }) {
     }
 
     const createPassword = (characterList) => {
-        let password = [];
         const characterListLength = characterList.length;
+        let password = [];
 
-        for(let i = 0; i < characterAmount; i++){
-            const characterCode = characterList[Math.floor(Math.random() * characterListLength)];
-            password.push(String.fromCharCode(characterCode));
+        console.log(characterList);
+
+        /* generation and shuffle */
+        for(let i = 0; i < passwordLength; i++){
+            let appoggio;
+            appoggio = String.fromCharCode(characterList[i]);
+            password.push(appoggio);
         }
 
-        return password.join('');
+        for(let i = password.length - 1; i > 0; i--){
+            let j = Math.floor(Math.random() * (i + 1));
+            let temp = password[i];
+            password[i] = password[j];
+            password[j] = temp;
+        }
+
+        console.log(characterList);
+        password = password.join("");
+        console.log(password);
+        return password;
     }
 
     const copyToClipboard = () => {
@@ -120,26 +136,101 @@ export default function Home({ allPostsData }) {
 
   return (
     <Layout home>
-        <Head>
-            <title>{siteTitle}</title>
-        </Head>
-        <section className={utilStyles.headingMd}>
-            <p>hello 👨🏼‍💻🌎</p>
-        </section>
+      <Head>
+        <title>{siteTitle}</title>
+      </Head>
+      <section className={utilStyles.headingMd}>
+        <p>hello 👨🏼‍💻🌎</p>
+      </section>
 
+      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+        <h2 className={utilStyles.headingLg}>Password Generator</h2>
 
-        <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-            <h2 className={utilStyles.headingLg}>Password Generator</h2>
-            
-
-
-        </section>
-
-        <div className={styles.backToHome}>
-            <Link href="/">
-                <a>← Back to home</a>
-            </Link>
+        <div className="generator__password">
+          <h3>{password}</h3>
+          <button onClick={handleCopyPassword} className="copy__btn">
+            <i className="far fa-clipboard"></i>
+          </button>
         </div>
+
+        <div className="form-group">
+          <label htmlFor="password-strength">Password length</label>
+          <input
+            defaultValue={passwordLength}
+            onChange={(e) => setPasswordLength(e.target.value)}
+            type="number"
+            id="password-strength"
+            name="password-strength"
+            max="20"
+            min="10"
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="uppercase-letters">Include Uppercase Letters</label>
+          <input
+            checked={includeUppercase}
+            onChange={(e) => setIncludeUppercase(e.target.checked)}
+            type="checkbox"
+            id="uppercase-letters"
+            name="uppercase-letters"
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="lowercase-letters">Include Lowercase Letters</label>
+          <input
+            checked={includeLowercase}
+            onChange={(e) => setIncludeLowercase(e.target.checked)}
+            type="checkbox"
+            id="lowercase-letters"
+            name="lowercase-letters"
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="include-numbers">Include Numbers</label>
+          <input
+            checked={includeNumbers}
+            onChange={(e) => setIncludeNumbers(e.target.checked)}
+            type="checkbox"
+            id="include-numbers"
+            name="include-numbers"
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="include-symbols">Include Symbols</label>
+          <input
+            checked={includeSymbols}
+            onChange={(e) => setIncludeSymbols(e.target.checked)}
+            type="checkbox"
+            id="include-symbols"
+            name="include-symbols"
+          />
+        </div>
+
+        <button onClick={handleGeneratePassword} className="generator__btn">
+          Generate Password
+        </button>
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+      </section>
+
+      <div className={styles.backToHome}>
+        <Link href="/">
+          <a>← Back to home</a>
+        </Link>
+      </div>
     </Layout>
-  )
+  );
 }
