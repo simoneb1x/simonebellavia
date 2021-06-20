@@ -73,11 +73,13 @@ export default function Home({ allPostsData }) {
         console.log(characterList);
 
         /* generation and shuffle */
-        for(let i = 0; i < passwordLength; i++){
+        for(let i = 0; i < characterListLength; i++){
             let appoggio;
             appoggio = String.fromCharCode(characterList[i]);
             password.push(appoggio);
         }
+
+        console.log(password);
 
         for(let i = password.length - 1; i > 0; i--){
             let j = Math.floor(Math.random() * (i + 1));
@@ -86,7 +88,8 @@ export default function Home({ allPostsData }) {
             password[j] = temp;
         }
 
-        console.log(characterList);
+        console.log(password);
+        password.splice(passwordLength);
         password = password.join("");
         console.log(password);
         return password;
