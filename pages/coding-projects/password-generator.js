@@ -1,10 +1,10 @@
 import React, { useState } from 'react' 
-import { toast, ToastContainer } from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Head from 'next/head'
 import Layout, { siteTitle } from '../../components/layout'
 import styles from '../../styles/utils.module.css'
 import utilStyles from '../../styles/utils.module.css'
-
 import Link from 'next/link'
 
 // Funzione che pusha caratteri in un array
@@ -64,6 +64,7 @@ export default function Home({ allPostsData }) {
         }
 
         setPassword(createPassword(characterList));
+
     }
 
     const createPassword = (characterList) => {
@@ -88,10 +89,13 @@ export default function Home({ allPostsData }) {
             password[j] = temp;
         }
 
-        console.log(password);
         password.splice(passwordLength);
         password = password.join("");
-        console.log(password);
+        
+        if(password){
+            notifyPasswordGeneration();
+        }
+        
         return password;
     }
 
@@ -107,7 +111,7 @@ export default function Home({ allPostsData }) {
     const notify = (message, hasError = false) => {
       if (hasError) {
         toast.error(message, {
-          position: "top-center",
+          position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
@@ -116,8 +120,8 @@ export default function Home({ allPostsData }) {
           progress: undefined,
         });
       } else {
-        toast(message, {
-          position: "top-center",
+        toast.success(message, {
+          position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
@@ -130,11 +134,15 @@ export default function Home({ allPostsData }) {
 
     const handleCopyPassword = (e) => {
       if (password === "") {
-        notify("Nothing To Copy", true);
+        notify("Nothing to copy. Please generate a password.", true);
       } else {
         copyToClipboard();
-        notify(COPY_SUCCESS);
+        notify("Evvai!");
       }
+    };
+
+    const notifyPasswordGeneration = (e) => {
+      notify("Password succesfully generated!");
     };
 
   return (
@@ -150,14 +158,14 @@ export default function Home({ allPostsData }) {
         <h2 className={utilStyles.headingLg}>Password Generator</h2>
 
         <div className="generator__password">
-          <h3>{password}</h3>
-          <button onClick={handleCopyPassword} className="copy__btn">
-            <i className="far fa-clipboard"></i>
-          </button>
+          <span>{password}</span>
+          {/* <button onClick={handleCopyPassword} className="copy__btn">
+            <p>Copy</p>
+          </button> */}
         </div>
 
         <div className="form-group">
-          <label htmlFor="password-strength">Password length</label>
+          <label htmlFor="password-strength">Set password length</label>
           <input
             defaultValue={passwordLength}
             onChange={(e) => setPasswordLength(e.target.value)}
@@ -170,7 +178,7 @@ export default function Home({ allPostsData }) {
         </div>
 
         <div className="form-group">
-          <label htmlFor="uppercase-letters">Include Uppercase Letters</label>
+          <label htmlFor="uppercase-letters">Include uppercase letters</label>
           <input
             checked={includeUppercase}
             onChange={(e) => setIncludeUppercase(e.target.checked)}
@@ -181,7 +189,7 @@ export default function Home({ allPostsData }) {
         </div>
 
         <div className="form-group">
-          <label htmlFor="lowercase-letters">Include Lowercase Letters</label>
+          <label htmlFor="lowercase-letters">Include lowercase letters</label>
           <input
             checked={includeLowercase}
             onChange={(e) => setIncludeLowercase(e.target.checked)}
@@ -192,7 +200,7 @@ export default function Home({ allPostsData }) {
         </div>
 
         <div className="form-group">
-          <label htmlFor="include-numbers">Include Numbers</label>
+          <label htmlFor="include-numbers">Include numbers</label>
           <input
             checked={includeNumbers}
             onChange={(e) => setIncludeNumbers(e.target.checked)}
@@ -217,7 +225,7 @@ export default function Home({ allPostsData }) {
           Generate Password
         </button>
         <ToastContainer
-          position="top-center"
+          position="top-right"
           autoClose={5000}
           hideProgressBar={false}
           newestOnTop={false}
