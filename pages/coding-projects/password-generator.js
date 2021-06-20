@@ -17,14 +17,53 @@ let arrayFromLowToHigh = (low, high) => {
 // Costanti
 const UPPERCASE_CODES = arrayFromLowToHigh(65, 90);
 const LOWERCASE_CODES = arrayFromLowToHigh(97, 122);
-const NUMBER_CODES = arrayFromLowToHigh(48, 57);
-const SYMBOL_CODES = arrayFromLowToHigh(33, 47)
+const NUMBERS_CODES = arrayFromLowToHigh(48, 57);
+const SYMBOLS_CODES = arrayFromLowToHigh(33, 47)
   .concat(arrayFromLowToHigh(58, 64))
   .concat(arrayFromLowToHigh(91, 96))
   .concat(arrayFromLowToHigh(123, 126));
 
-
+// Home function
 export default function Home({ allPostsData }) {
+
+    const [password, setPassword] = useState("");
+    const [passwordLength, setPasswordLength] = useState(20);
+    const [includeUppercase, setIncludeUppercase] = useState(false);
+    const [includeLowercase, setIncludeLowercase] = useState(false);
+    const [includeNumbers, setIncludeNumbers] = useState(false);
+    const [includeSymbols, setIncludeSymbols] = useState(false);
+
+    const handleGenerationPassword = (e) => {
+        if(
+            !includeUppercase &&
+            !includeLowercase &&
+            !includeNumbers &&
+            !includeSymbols
+        ) {
+            notify("You must select at least one option", true)
+        }
+
+        let characterList = '';
+
+        if (includeLowercase) {
+            characterList =  characterList.concat(LOWERCASE_CODES);
+        }
+
+        if(includeUppercase) {
+            characterList = characterList.concat(UPPERCASE_CODES);
+        }
+
+        if(includeNumbers) {
+            characterList = characterList.concat(NUMBERS_CODES);
+        }
+
+        if(includeSymbols){
+            characterList = characterList.concat(SYMBOLS_CODES);
+        }
+
+        setPassword(createPassword(characterList));
+    }
+
   return (
     <Layout home>
         <Head>
@@ -37,7 +76,9 @@ export default function Home({ allPostsData }) {
 
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
             <h2 className={utilStyles.headingLg}>Password Generator</h2>
-            <p>Test</p>
+            
+
+
         </section>
 
         <div className={styles.backToHome}>
