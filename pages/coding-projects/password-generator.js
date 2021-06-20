@@ -64,6 +64,60 @@ export default function Home({ allPostsData }) {
         setPassword(createPassword(characterList));
     }
 
+    const createPassword = (characterList) => {
+        let password = [];
+        const characterListLength = characterList.length;
+
+        for(let i = 0; i < characterAmount; i++){
+            const characterCode = characterList[Math.floor(Math.random() * characterListLength)];
+            password.push(String.fromCharCode(characterCode));
+        }
+
+        return password.join('');
+    }
+
+    const copyToClipboard = () => {
+        const newTextArea = document.createElement("textarea");
+        newTextArea.innerText = password;
+        document.body.appendChild(newTextArea);
+        newTextArea.select();
+        document.execCommand("copy");
+        newTextArea.remove();
+    }
+
+    const notify = (message, hasError = false) => {
+      if (hasError) {
+        toast.error(message, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      } else {
+        toast(message, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    }
+
+    const handleCopyPassword = (e) => {
+      if (password === "") {
+        notify("Nothing To Copy", true);
+      } else {
+        copyToClipboard();
+        notify(COPY_SUCCESS);
+      }
+    };
+
   return (
     <Layout home>
         <Head>
