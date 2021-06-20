@@ -75,9 +75,9 @@ export default function Home({ allPostsData }) {
 
         /* generation and shuffle */
         for(let i = 0; i < characterListLength; i++){
-            let appoggio;
-            appoggio = String.fromCharCode(characterList[i]);
-            password.push(appoggio);
+            let k;
+            k = String.fromCharCode(characterList[i]);
+            password.push(k);
         }
 
         console.log(password);
