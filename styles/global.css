@@ -26,6 +26,8 @@ img {
   display: block;
 }
 
-p {
+p,
+ul,
+li {
   color: #374151;
 }
