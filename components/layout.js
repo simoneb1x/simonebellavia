@@ -30,12 +30,13 @@ export default function Layout({ children, home }) {
           <>
             <Link href="/">
               <h1 className={utilStyles.heading2Xl}>
-                Hello there, I'm Simone.
+                Hello there, I'm Simone 👨🏼‍💻
               </h1>
             </Link>
             <section className={utilStyles.subHeadingHeader}>
-              a curious scrum master and data science student 👨🏼‍💻🌎 <br></br>
-              know more about me <Link href="/about">here</Link>
+              I'm a curious scrum master, developer and data science student. 
+              Sometimes I write something on my blog.
+              I work as a Business and Integration Arch Analyst at Accenture. Know more about me <Link href="/about">here.</Link>
             </section>
           </>
         ) : (
