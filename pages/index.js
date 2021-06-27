@@ -48,9 +48,6 @@ export default function Home({ allPostsData }) {
             className={utilStyles.socialIcons}
           />
         </a>
-        <p>
-          know more about me <Link href="/about">here</Link>
-        </p>
       </section>
 
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>

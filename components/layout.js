@@ -28,33 +28,18 @@ export default function Layout({ children, home }) {
       <header className={styles.header}>
         {home ? (
           <>
-            <img
-              src="/images/profile.jpg"
-              alt={name}
-              className={utilStyles.borderCircle}
-              height={100}
-              width={100}
-            />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
-            <section className={utilStyles.headingMd}>
-              <p>a curious scrum master and data science student 👨🏼‍💻🌎</p>
+            <Link href="/">
+              <h1 className={utilStyles.heading2Xl}>
+                Hello there, I'm Simone.
+              </h1>
+            </Link>
+            <section className={utilStyles.subHeadingHeader}>
+              a curious scrum master and data science student 👨🏼‍💻🌎 <br></br>
+              know more about me <Link href="/about">here</Link>
             </section>
           </>
         ) : (
           <>
-            <Link href="/">
-              <a>
-                <Image
-                  priority
-                  src="/images/profile.jpg"
-                  className={utilStyles.borderCircle}
-                  height={108}
-                  width={108}
-                  alt={name}
-                />
-              </a>
-            </Link>
-
             <h2 className={utilStyles.headingLg}>
               <Link href="/">
                 <a className={utilStyles.colorInherit}>{name}</a>
