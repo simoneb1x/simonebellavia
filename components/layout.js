@@ -1,26 +1,35 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from './layout.module.css'
-import utilStyles from '../styles/utils.module.css'
-import Link from 'next/link'
+import Head from "next/head";
+import styles from "./layout.module.css";
+import utilStyles from "../styles/utils.module.css";
+import Link from "next/link";
 
-const name = 'Simone Bellavia'
-export const siteTitle = 'Simone Bellavia – simonebellavia.com'
+const name = "Simone Bellavia";
+export const siteTitle = "Simone Bellavia – simonebellavia.com";
 
 export default function Layout({ children, home }) {
   return (
     <div className={styles.container}>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="description"
-          content="Just a creative, curious guy! Working in IT – Data Science student."
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/favicon/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon/favicon-16x16.png"
         />
         <meta
-          property="og:image"
-          content={`https://og-image.vercel.app/${encodeURI(
-            siteTitle
-          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
+          name="description"
+          content="I'm a curious Scrum Master, developer and Data Science student. Read more on my blog."
         />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
@@ -34,9 +43,10 @@ export default function Layout({ children, home }) {
               </h1>
             </Link>
             <section className={utilStyles.subHeadingHeader}>
-              I'm a curious Scrum Master, developer and Data Science student. 
-              Sometimes I write something on my blog.
-              I work as a Business and Integration Arch Analyst at Accenture. Know more about me <Link href="/about">here.</Link>
+              I'm a curious Scrum Master, developer and Data Science student.
+              Sometimes I write something on my blog. I work as a Business and
+              Integration Arch Analyst at Accenture. Know more about me{" "}
+              <Link href="/about">here.</Link>
             </section>
           </>
         ) : (
