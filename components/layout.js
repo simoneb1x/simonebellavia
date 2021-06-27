@@ -34,7 +34,7 @@ export default function Layout({ children, home }) {
               </h1>
             </Link>
             <section className={utilStyles.subHeadingHeader}>
-              I'm a curious scrum master, developer and data science student. 
+              I'm a curious Scrum Master, developer and Data Science student. 
               Sometimes I write something on my blog.
               I work as a Business and Integration Arch Analyst at Accenture. Know more about me <Link href="/about">here.</Link>
             </section>
