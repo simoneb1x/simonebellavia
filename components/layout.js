@@ -28,8 +28,17 @@ export default function Layout({ children, home }) {
       <header className={styles.header}>
         {home ? (
           <>
-            <img src="/images/profile.jpg" alt={name} className={utilStyles.borderCircle} height={100} width={100}/>
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>            
+            <img
+              src="/images/profile.jpg"
+              alt={name}
+              className={utilStyles.borderCircle}
+              height={100}
+              width={100}
+            />
+            <h1 className={utilStyles.heading2Xl}>{name}</h1>
+            <section className={utilStyles.headingMd}>
+              <p>a curious scrum master and data science student 👨🏼‍💻🌎</p>
+            </section>
           </>
         ) : (
           <>
@@ -45,7 +54,7 @@ export default function Layout({ children, home }) {
                 />
               </a>
             </Link>
-            
+
             <h2 className={utilStyles.headingLg}>
               <Link href="/">
                 <a className={utilStyles.colorInherit}>{name}</a>
@@ -63,5 +72,5 @@ export default function Layout({ children, home }) {
         </div>
       )}
     </div>
-  )
+  );
 }

@@ -10,6 +10,7 @@ import Date from '../components/date'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInstagram } from '@fortawesome/free-brands-svg-icons'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData()
@@ -27,15 +28,29 @@ export default function Home({ allPostsData }) {
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>hello 👨🏼‍💻🌎</p>
-        <p>know more about me <Link href="/about">here</Link></p>
-        <a href="https://instagram.com/simonebellavia">
-          <FontAwesomeIcon icon={faInstagram} className={utilStyles.socialIcons}/>
-        </a>
-        <span style={{padding: 8}}></span>
         <a href="https://www.linkedin.com/in/simone-bellavia/">
-          <FontAwesomeIcon icon={faLinkedin} className={utilStyles.socialIcons}/>
+          <FontAwesomeIcon
+            icon={faLinkedin}
+            className={utilStyles.socialIcons}
+          />
         </a>
+        <span style={{ padding: 8 }}></span>
+        <a href="https://instagram.com/simonebellavia">
+          <FontAwesomeIcon
+            icon={faInstagram}
+            className={utilStyles.socialIcons}
+          />
+        </a>
+        <span style={{ padding: 8 }}></span>
+        <a href="https://twitter.com/simoneb1x">
+          <FontAwesomeIcon
+            icon={faTwitter}
+            className={utilStyles.socialIcons}
+          />
+        </a>
+        <p>
+          know more about me <Link href="/about">here</Link>
+        </p>
       </section>
 
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
@@ -43,17 +58,17 @@ export default function Home({ allPostsData }) {
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
-            <Link href={`/posts/${id}`}>
-              <a>{title}</a>
-            </Link>
-            <br />
-            <small className={utilStyles.lightText}>
-              <Date dateString={date} />
-            </small>
+              <Link href={`/posts/${id}`}>
+                <a>{title}</a>
+              </Link>
+              <br />
+              <small className={utilStyles.lightText}>
+                <Date dateString={date} />
+              </small>
             </li>
           ))}
         </ul>
       </section>
     </Layout>
-  )
+  );
 }
