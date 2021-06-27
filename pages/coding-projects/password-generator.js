@@ -146,14 +146,10 @@ export default function Home({ allPostsData }) {
     };
 
   return (
-    <Layout home>
+    <Layout>
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
-        <p>hello 👨🏼‍💻🌎</p>
-      </section>
-
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Password Generator</h2>
 
@@ -237,11 +233,6 @@ export default function Home({ allPostsData }) {
         />
       </section>
 
-      <div className={styles.backToHome}>
-        <Link href="/">
-          <a>← Back to home</a>
-        </Link>
-      </div>
     </Layout>
   );
 }
