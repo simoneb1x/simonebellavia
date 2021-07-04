@@ -21,6 +21,20 @@ export async function getStaticPaths() {
   }
 }
 
+/* Scroll to Top hook - begin */
+
+const [showScroll, setShowScroll] = useState(false)
+const checkScrollTop = () => {    
+   if (!showScroll && window.pageYOffset > 400){
+      setShowScroll(true)    
+   } else if (showScroll && window.pageYOffset <= 400){
+      setShowScroll(false)    
+   }  
+};
+window.addEventListener('scroll', checkScrollTop)
+
+/* Scroll to Top hook - end */
+
 export default function Post({ postData }) {
     return (
       <Layout>
