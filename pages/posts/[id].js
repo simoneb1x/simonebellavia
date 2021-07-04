@@ -1,8 +1,10 @@
+import React, { useEffect, useState } from "react";
 import Layout from '../../components/layout'
 import { getAllPostIds, getPostData } from '../../lib/posts'
 import Head from 'next/head'
 import Date from '../../components/date'
 import utilStyles from '../../styles/utils.module.css'
+import {FaArrowCircleUp} from 'react-icons/fa';
 
 export async function getStaticProps({ params }) {
   const postData = await getPostData(params.id)
@@ -21,33 +23,48 @@ export async function getStaticPaths() {
   }
 }
 
-/* Scroll to Top hook - begin */
-
-const [showScroll, setShowScroll] = useState(false)
-const checkScrollTop = () => {    
-   if (!showScroll && window.pageYOffset > 400){
-      setShowScroll(true)    
-   } else if (showScroll && window.pageYOffset <= 400){
-      setShowScroll(false)    
-   }  
-};
-window.addEventListener('scroll', checkScrollTop)
-
-/* Scroll to Top hook - end */
-
 export default function Post({ postData }) {
-    return (
-      <Layout>
-        <Head>
-          <title>{postData.title}</title>
-        </Head>
-        <article>
-          <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-          <div className={utilStyles.lightText}>
-            <Date dateString={postData.date} />
-          </div>
-          <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-        </article>
-      </Layout>
-    )
+
+  /* Scroll to Top hook - begin */
+
+  const [showScroll, setShowScroll] = useState(false);
+  const checkScrollTop = () => {
+    if (!showScroll && window.pageYOffset > 400) {
+      setShowScroll(true);
+    } else if (showScroll && window.pageYOffset <= 400) {
+      setShowScroll(false);
+    }
+  };
+  
+
+  useEffect(function mount() {
+    window.addEventListener("scroll", checkScrollTop);
+  })
+
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+  
+  /* Scroll to Top hook - end */
+
+  return (
+    <Layout>
+      <Head>
+        <title>{postData.title}</title>
+      </Head>
+      <article>
+        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
+        <div className={utilStyles.lightText}>
+          <Date dateString={postData.date} />
+        </div>
+        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+      </article>
+
+      <FaArrowCircleUp
+        className="scrollTop"
+        onClick={scrollTop}
+        style={{ height: 40, display: showScroll ? "flex" : "none" }}
+      />
+    </Layout>
+  );
 }

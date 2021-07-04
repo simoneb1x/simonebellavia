@@ -31,3 +31,41 @@ ul,
 li {
   color: #374151;
 }
+
+/* Scroll To Top CSS */
+.scrollTop {
+  position: fixed; 
+  width: 100%;
+  left: 430px;
+  bottom: 20px;
+  align-items: center;
+  height: 20px;
+  justify-content: center;
+  z-index: 1000;
+  cursor: pointer;
+  animation: fadeIn 0.3s;
+  transition: opacity 0.4s;
+  opacity: 0.5;
+}
+
+.scrollTop:hover{
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .scrollTop {
+    left: 330px;
+    opacity: 1;
+  }
+}
+
+/* Scroll To Top CSS - END */
